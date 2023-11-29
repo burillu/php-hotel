@@ -6,17 +6,21 @@ if (isset($_GET["parking"]) && isset($_GET["vote"])) {
   $vote = (int) $_GET["vote"];
   if ($_GET["parking"] === 'true') {
     $parking = true;
-   
-  } elseif ($_GET["parking"] === 'false') {
-    $parking = false;
-  }; 
-  $hotels = array_filter($hotels, fn($hotel) => $hotel['parking'] === $parking);
+    $hotels = array_filter($hotels, fn($hotel) => $hotel['parking'] === $parking);
+  } elseif ($vote > 0) {
+    $hotels = array_filter($hotels, fn($hotel) => $hotel['vote']>$vote);
+  }
+  
+  if ($vote > 0 && $parking) {
+    $hotels = array_filter($hotels, fn($hotel) => $hotel['parking'] && $hotel['vote'] > $vote);
+  }
+
 
 
   // var_dump($vote);
   // var_dump($parking);
   //creare la funzione da chiamare per poi filtrare gli elementi
-  
+
   // function filter_hotel ($park, $vote) {
 
   // }
@@ -91,10 +95,7 @@ if (isset($_GET["parking"]) && isset($_GET["vote"])) {
 
     </div>
   </div>
-  <?php
-  echo '$nulla';
 
-  ?>
 </main>
 
 <?php
