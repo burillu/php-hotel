@@ -56,8 +56,20 @@ include __DIR__ ."/../Model/db.php";
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" action="<?php __DIR__ .'/../index.php'?>" method="GET">
+        <select  class="form-select me-2" aria-label="Default select example" name="parking">
+          <option selected value="">Need Parking?</option>
+          <option value="true"> Yes</option>
+          <option value="false">No</option>
+        </select>
+        <select  class="form-select me-2" aria-label="Default select example" name="vote">
+          <option selected value="">Rating?</option>
+          <option value="1"> 1 star</option>
+          <option value="2">2 star</option>
+          <option value="3">3 star</option>
+          <option value="4">4 star</option>
+          <option value="5">5 star</option>
+        </select>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

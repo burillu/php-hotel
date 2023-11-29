@@ -2,6 +2,21 @@
 include __DIR__ . "/partials/header.php";
 
 
+if (isset($_GET["parking"]) && isset($_GET["vote"])) {
+  if($_GET["parking"]=== 'true'){
+    $parking =true;
+  } elseif($_GET["parking"]=== 'false'){
+    $parking =false;
+  };
+  
+  $vote =(int) $_GET["vote"];
+  // var_dump($vote);
+  // var_dump($parking);
+  // function filter_hotel ($park, $vote) {
+    
+  // }
+}
+
 
 ?>
 
@@ -17,26 +32,30 @@ include __DIR__ . "/partials/header.php";
           <th scope="col">Description</th>
           <th scope="col">Parking</th>
           <th scope="col">Vote</th>
-          <th scope="col">Center Dist.</th>        
+          <th scope="col">Center Dist.</th>
         </tr>
       </thead>
       <tbody>
-        <?php  $count =1; 
-        foreach ($hotels as $hotel) {?>
-        <tr>
-          <th scope="row"><?php echo $count?></th>
-          <?php foreach($hotel as $hoteldetail) {?>
-          <td><?php if (is_bool($hoteldetail)){
-            echo $hoteldetail ?'<i class="fa-solid fa-check text-success"></i>':'<i class="text-danger fa-solid fa-xmark"></i>';
-          }else{
-            echo $hoteldetail;
-          } ?></td>
-          
-          <?php } ?>
-        </tr>
-        <?php $count++; 
-      } ?>
-        
+        <?php $count = 1;
+        foreach ($hotels as $hotel) { ?>
+          <tr>
+            <th scope="row">
+              <?php echo $count ?>
+            </th>
+            <?php foreach ($hotel as $hoteldetail) { ?>
+              <td>
+                <?php if (is_bool($hoteldetail)) {
+                  echo $hoteldetail ? '<i class="fa-solid fa-check text-success"></i>' : '<i class="text-danger fa-solid fa-xmark"></i>';
+                } else {
+                  echo $hoteldetail;
+                } ?>
+              </td>
+
+            <?php } ?>
+          </tr>
+          <?php $count++;
+        } ?>
+
       </tbody>
     </table>
     <div class="row gy-3">

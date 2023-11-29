@@ -1,6 +1,6 @@
 <footer>
   <div class="container">
-    footer made with &hearts; by classe #107
+    footer made with &#9767; by Michele
   </div>
   </footer>
 
