@@ -3,17 +3,22 @@ include __DIR__ . "/partials/header.php";
 
 
 if (isset($_GET["parking"]) && isset($_GET["vote"])) {
-  if($_GET["parking"]=== 'true'){
-    $parking =true;
-  } elseif($_GET["parking"]=== 'false'){
-    $parking =false;
-  };
-  
-  $vote =(int) $_GET["vote"];
+  $vote = (int) $_GET["vote"];
+  if ($_GET["parking"] === 'true') {
+    $parking = true;
+   
+  } elseif ($_GET["parking"] === 'false') {
+    $parking = false;
+  }; 
+  $hotels = array_filter($hotels, fn($hotel) => $hotel['parking'] === $parking);
+
+
   // var_dump($vote);
   // var_dump($parking);
+  //creare la funzione da chiamare per poi filtrare gli elementi
+  
   // function filter_hotel ($park, $vote) {
-    
+
   // }
 }
 
