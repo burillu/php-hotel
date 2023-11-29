@@ -64,11 +64,11 @@ include __DIR__ ."/../Model/db.php";
         </select>
         <select  class="form-select me-2" aria-label="Default select example" name="vote">
           <option selected value="">Rating?</option>
-          <option value="1"> 1 star</option>
-          <option value="2">2 star</option>
-          <option value="3">3 star</option>
-          <option value="4">4 star</option>
-          <option value="5">5 star</option>
+          <option value="0"> 1 star</option>
+          <option value="1">2 star</option>
+          <option value="2">3 star</option>
+          <option value="3">4 star</option>
+          <option value="4">5 star</option>
         </select>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
